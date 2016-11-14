@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 1000
+
+int main()
+{
+    int n,i,curr=0,next;
+    char str[MAX];
+    scanf("%d",&n);
+    scanf("%s",str);
+    int *arr=malloc(n*sizeof(int));
+    for(i=0;i<n;i++){
+    	arr[i]=1;
+    }
+    int count=n;
+    i=0;
+    int len=strlen(str);
+    while(1){
+    	char ch=str[i];
+    	if(ch=='b')
+    		arr[curr]=0;
+    	next=curr;
+    	while(1){
+            next=(next+1)%n;
+            if(arr[next] || next==curr){
+                break;
+            }
+        }
+        if(next==curr){
+            break;
+        }
+        curr=next;
+        i=(i+1)%len;
+    }
+    printf("%d",curr+1);
+    return 0;
+}
