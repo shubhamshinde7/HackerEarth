@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include<string.h>
+#define max 600000
+ 
+int main()
+{
+    int n,i,j,code=0,streak=0,maxcode=0;
+    scanf("%d",&n);
+    char str[max],str1[max];
+    for(i=0;i<n;i++){
+    	scanf("%s",str);
+    	strcat(str1,str);
+    	int count=0;
+    	int len=strlen(str);
+    	for(j=0;j<len;j++){
+    		if(str[j]=='C'&& str[j+1]=='C')
+    			count++;
+    		if(str[j]=='C' && str[j+1]=='E')
+    			count=0;
+    		if(str[j]=='C' && str[j+1]=='S')
+    			count=0;
+    		if(count>code)
+    			code=count;
+    	}
+    	if(maxcode<code)
+    		maxcode=code;
+    }
+    int count=0;
+    int len=strlen(str1);
+    for(j=0;j<len;j++){
+    	if(str1[j]=='C'&& str1[j+1]=='C')
+    		count++;
+    	if(str1[j]=='C' && str1[j+1]=='E')
+   			count=0;
+   		if(str1[j]=='C' && str1[j+1]=='S')
+   			count=0;
+   		if(count>streak)
+   			streak=count;
+    }
+    if(maxcode!=0)
+    	printf("%d %d",maxcode+1,streak+1);
+    else
+    	printf("%d %d",maxcode,streak);
+    return 0;
+}
