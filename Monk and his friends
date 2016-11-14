@@ -1,0 +1,19 @@
+#include <stdio.h>
+ 
+int main()
+{
+    int long long t,m,p,xo,count;
+    scanf("%lld",&t);
+    while(t--){
+    	scanf("%lld%lld",&m,&p);
+    	count=0;
+    	while(m>0 || p>0){
+    		if(m%2 != p%2)
+    			count++;
+    		m=m/2;
+    		p=p/2;
+    	}
+    	printf("%lld\n",count);
+    }
+    return 0;
+}
