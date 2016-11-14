@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define MAX 1000000
+int main()
+{
+    int t,N,A[MAX];
+    scanf("%d",&t);
+    while(t--)
+    {
+        int long long odd=0,even=0;
+        scanf("%d",&N);
+        for(int i=0;i<N;i++)
+            scanf("%d",&A[i]);
+        for(int i=0;i<N;i++){
+        	if(A[i]%2==0)
+        		even++;
+        	else
+        		odd++;
+        }
+        printf("%lld\n",even*odd);
+    }
+    return 0;
+}
